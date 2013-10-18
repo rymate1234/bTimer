@@ -1,0 +1,9 @@
+name: bTimer
+version: 0.1
+author: rymate1234
+website: http://rymatemc.co.uk/
+main: net.rymate.bTimer.bTimer
+commands:
+  timer:
+    description: Does something, counts down, undoes it.
+    usage: /<command> <time in seconds> <player> <action> <value>
