@@ -1,5 +1,6 @@
 package net.rymate.bTimer;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -21,7 +22,18 @@ public class CommandTimer implements CommandExecutor, Listener {
     }
 
     @Override
-    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
+    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] arguments) {
+        if (command.getName().equalsIgnoreCase("timer")) {
+            if (!commandSender.hasPermission("bTimer.timer")) {
+                commandSender.sendMessage(ChatColor.RED + "You haven't got the bTimer.timer permission!");
+                return false;
+            }
+            if (arguments.length != 4) {
+                commandSender.sendMessage(ChatColor.RED + "You appear to have used the command incorrectly!");
+                commandSender.sendMessage(ChatColor.RED + "Remember, you must specify a timeframe, a player, and what you want to happen.");
+                return false;
+            }
+        }
+        return false;
     }
 }
